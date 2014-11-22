@@ -193,11 +193,11 @@ public class MinecraftBlockCircular
         }
         else if (x0 == x1 && z0 < z1 && x1 == x2 && z1 < z2)
         {
-            newx--;
+            //newx--;
         }
         else if (x0 > x1 && z0 == z1 && x1 > x2 && z1 == z2)
         {
-            newz--;
+            //newz--;
         }
         else if (x0 == x1 && z0 > z1 && x1 == x2 && z1 > z2)
         {
@@ -206,20 +206,20 @@ public class MinecraftBlockCircular
         else if (x0 < x1 && z0 == z1 && x1 == x2 && z1 < z2 ||
                  x0 == x1 && z0 < z1 && x1 < x2 && z1 == z2)
         {
-            newx--;
+            //newx--;
             newz++;
         }
         else if (x0 == x1 && z0 < z1 && x1 > x2 && z1 == z2 ||
                  x0 > x1 && z0 == z1 && x1 == x2 && z1 < z2)
         {
-            newx--;
-            newz--;
+            //newx--;
+            //newz--;
         }
         else if (x0 > x1 && z0 == z1 && x1 == x2 && z1 > z2 ||
                  x0 == x1 && z0 > z1 && x1 > x2 && z1 == z2)
         {
             newx++;
-            newz--;
+            //newz--;
         }
         else if (x0 == x1 && z0 > z1 && x1 < x2 && z1 == z2 ||
                  x0 < x1 && z0 == z1 && x1 == x2 && z1 > z2)

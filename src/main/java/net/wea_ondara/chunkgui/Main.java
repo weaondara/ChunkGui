@@ -17,7 +17,7 @@ public class Main extends JFrame
     {
         init();
         
-        int radius = 152;
+        int radius = 153;
         int x = 189;
         int z = 195;
         
