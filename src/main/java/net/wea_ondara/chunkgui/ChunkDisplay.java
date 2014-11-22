@@ -19,7 +19,6 @@ public class ChunkDisplay extends JPanel
 
     //chunk points
     private List<Point> points = new ArrayList<>();
-    private List<Point> pointsout = new ArrayList<>();
     private List<Point> pointsin = new ArrayList<>();
 
     public void resetPoints()
@@ -53,13 +52,6 @@ public class ChunkDisplay extends JPanel
         {
             Point p1 = points.get(i % points.size());
             Point p2 = points.get((i + 1) % points.size());
-            g.drawLine(p1.getX(), p1.getZ(), p2.getX(), p2.getZ());
-        }
-        g.setColor(Color.GREEN);
-        for (int i = 0; i < pointsout.size(); i++)
-        {
-            Point p1 = pointsout.get(i % pointsout.size());
-            Point p2 = pointsout.get((i + 1) % pointsout.size());
             g.drawLine(p1.getX(), p1.getZ(), p2.getX(), p2.getZ());
         }
         g.setColor(Color.ORANGE);

@@ -1,6 +1,7 @@
 package net.wea_ondara.chunkgui;
 
 import java.util.Iterator;
+import java.util.List;
 import javax.swing.JFrame;
 
 public class Main extends JFrame
@@ -16,46 +17,26 @@ public class Main extends JFrame
     {
         init();
         
-        //insert code here
-        /*cd.getPoints().add(new Point(16*5, 16*4));
-        cd.getPoints().add(new Point(16*6, 16*4));
-        cd.getPoints().add(new Point(16*6, 16*5));
-        cd.getPoints().add(new Point(16*6, 16*6));
-        cd.getPoints().add(new Point(16*7, 16*6));*/
+        int radius = 152;
+        int x = 189;
+        int z = 195;
         
-        int radiusBlock = 8;
-        int xBlock = 11;
-        int yBlock = 10;
+        mbc.setRadius(radius);
+        mbc.setCenter(new Point(x, z));
+        mbc.defineRadiusChunk();
         
-        mbc.setRadius(radiusBlock);
-        mbc.setCenter(new Point(xBlock, yBlock));
-        mbc.defineRadius();
-        
-        // Middle Approximation
-        cd.setRadius(radiusBlock * 16);
-        cd.setCenter(new Point(xBlock * 16, yBlock * 16));
+        cd.setRadius(radius);
+        cd.setCenter(new Point(x, z));
         
         for (int i = 0; i < mbc.getPoints().size(); i++)
         {
-            cd.getPoints().add(new Point(mbc.getPoints().get(i).getX() * 16, mbc.getPoints().get(i).getZ() * 16));
+            cd.getPoints().add(mbc.getPoints().get(i));
         }
         
-        // 1st Bigger Approximation
-        mbc.setRadius(radiusBlock + 1);
-        mbc.defineRadius();
-
-        for (int i = 0; i < mbc.getPoints().size(); i++)
+        List<Point> newpoints = mbc.smallerCircuitApproximation();
+        for (int i = 0; i < newpoints.size(); i++)
         {
-            cd.getPointsout().add(new Point(mbc.getPoints().get(i).getX() * 16, mbc.getPoints().get(i).getZ() * 16));
-        }
-        
-        // 1st Smaller Approximation
-        mbc.setRadius(radiusBlock - 1);
-        mbc.defineRadius();
-
-        for (int i = 0; i < mbc.getPoints().size(); i++)
-        {
-            cd.getPointsin().add(new Point(mbc.getPoints().get(i).getX() * 16, mbc.getPoints().get(i).getZ() * 16));
+            cd.getPointsin().add(newpoints.get(i));
         }
         
         //repaint with: cd.repaint();
